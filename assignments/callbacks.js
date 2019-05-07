@@ -68,6 +68,9 @@ contains('Pencil', items, display);
 
 function removeDuplicates(array, cb) {
   // removeDuplicates removes all duplicate values from the given array.
+  const noDuplicateArray = array.filter((item, index) => array.indexOf(item) === index);
   // Pass the duplicate free array to the callback function.
+  return cb(noDuplicateArray);
   // Do not mutate the original array.
 }
+console.log(removeDuplicates(items, (value) => value));
