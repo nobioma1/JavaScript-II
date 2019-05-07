@@ -80,7 +80,22 @@ console.log(ticketPriceTotal);
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
 // Problem 1
+// Output the full name and donation of top donors
+const topDonors = runners.filter(runner => runner.donation >= 270)
+topDonors.map(topDonor => {
+  console.log(`Name: ${topDonor.first_name} ${topDonor.last_name} | Donation: ${topDonor.donation}`)
+})
 
 // Problem 2
+// total donations by users from a "Skinix" company
+const skinixTotalDonations = runners.filter(runner => {
+  return runner.company_name === 'Skinix'
+}).reduce((accumulator, currentValue) => {
+  return accumulator + currentValue.donation;
+}, 0);
+console.log(skinixTotalDonations);
+
 
 // Problem 3
+// output of all runners email 
+runners.forEach(runner => console.log(runner.email))
